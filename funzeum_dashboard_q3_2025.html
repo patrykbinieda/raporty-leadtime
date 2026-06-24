@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Funzeum — Analiza B2B Lato–Jesień 2025</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.26.0/tabler-icons.min.css">
+<style>
+:root{
+  --bg1:#ffffff;--bg2:#f1f5f9;--bg3:#f0f4f8;
+  --bgi:#dbeafe;--bgw:#fef9c3;--bgs:#dcfce7;--bgd:#fee2e2;--bgp:#f5f3ff;
+  --t1:#1e293b;--t2:#64748b;--t3:#94a3b8;
+  --ti:#1d4ed8;--tw:#854d0e;--ts:#15803d;--td:#b91c1c;--tp:#5b21b6;
+  --br:rgba(0,0,0,0.08);--brs:rgba(0,0,0,0.14);
+  --bri:#93c5fd;--brw:#fde047;--brsu:#86efac;--brd:#fca5a5;
+  --rmd:8px;--rlg:12px;
+  --font:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg1:#1e2433;--bg2:#252d3d;--bg3:#18202e;
+  --bgi:#172554;--bgw:#422006;--bgs:#052e16;--bgd:#450a0a;--bgp:#2e1065;
+  --t1:#e2e8f0;--t2:#94a3b8;--t3:#64748b;
+  --ti:#93c5fd;--tw:#fde68a;--ts:#86efac;--td:#fca5a5;--tp:#d8b4fe;
+  --br:rgba(255,255,255,0.08);--brs:rgba(255,255,255,0.14);
+  --bri:rgba(147,197,253,.25);--brw:rgba(253,224,71,.25);--brsu:rgba(134,239,172,.25);--brd:rgba(252,165,165,.25);
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg3);min-height:100vh;color:var(--t1)}
+.wrap{max-width:920px;margin:0 auto;background:var(--bg3)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.hdr{padding:14px 20px;background:var(--bg1);border-bottom:.5px solid var(--br);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.hdr-t{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:3px;display:flex;align-items:center;gap:7px}
+.hdr-s{font-size:12px;color:var(--t2)}
+.hdr-b{background:var(--bg2);border:.5px solid var(--brs);border-radius:var(--rmd);padding:7px 13px;font-size:12px;color:var(--t2);white-space:nowrap;margin-top:2px}
+.badge-period{background:var(--bgp);color:var(--tp);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:500}
+.tabs{display:flex;overflow-x:auto;border-bottom:.5px solid var(--br);background:var(--bg1)}
+.tabs button{padding:10px 15px;border:none;background:none;border-bottom:2.5px solid transparent;color:var(--t2);font-size:13px;cursor:pointer;white-space:nowrap;font-family:var(--font);display:flex;align-items:center;gap:5px;transition:background .12s}
+.tabs button.on{color:var(--ti);border-bottom-color:currentColor;font-weight:500}
+.tabs button:hover:not(.on){background:var(--bg2)}
+.pnl{display:none;padding:16px 18px}
+.pnl.on{display:block}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.kpi{background:var(--bg2);border-radius:var(--rmd);padding:12px 14px}
+.kpi .l{font-size:11px;font-weight:500;color:var(--t2);margin-bottom:5px}
+.kpi .v{font-size:22px;font-weight:500;color:var(--t1);line-height:1.1}
+.kpi .s{font-size:11px;color:var(--t3);margin-top:3px}
+.card{background:var(--bg1);border:.5px solid var(--br);border-radius:var(--rlg);padding:14px 16px;margin-bottom:12px}
+.ct{font-size:12px;font-weight:500;color:var(--t2);margin-bottom:10px}
+.dscr{font-size:12px;color:var(--t2);margin-bottom:12px;line-height:1.5}
+.cw{position:relative;width:100%}
+.box{display:flex;gap:9px;padding:10px 13px;border-radius:var(--rmd);margin-bottom:8px;font-size:13px;line-height:1.55;border:.5px solid transparent}
+.box i{flex-shrink:0;font-size:15px;margin-top:2px}
+.box.inf{background:var(--bgi);color:var(--ti);border-color:var(--bri)}
+.box.wrn{background:var(--bgw);color:var(--tw);border-color:var(--brw)}
+.box.suc{background:var(--bgs);color:var(--ts);border-color:var(--brsu)}
+.box.pur{background:var(--bgp);color:var(--tp)}
+.bdg{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500}
+.bdg.i{background:var(--bgi);color:var(--ti)}
+.bdg.w{background:var(--bgw);color:var(--tw)}
+.bdg.s{background:var(--bgs);color:var(--ts)}
+.bdg.d{background:var(--bgd);color:var(--td)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{padding:8px 10px;text-align:left;font-weight:500;font-size:11px;color:var(--t2);border-bottom:.5px solid var(--br);background:var(--bg2);text-transform:uppercase;letter-spacing:.04em}
+.tbl td{padding:9px 10px;border-bottom:.5px solid var(--br);color:var(--t1)}
+.tbl tr:last-child td{border-bottom:none}
+.leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12px;color:var(--t2)}
+.leg span{display:flex;align-items:center;gap:5px}
+.leg .dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.nota{font-size:11px;color:var(--t3);padding-top:12px;border-top:.5px solid var(--br);margin-top:12px;line-height:1.7}
+.cmp-bar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t2);margin-bottom:6px}
+.cmp-label{width:100px;flex-shrink:0}
+.cmp-track{flex:1;background:var(--bg2);border-radius:2px;height:6px}
+.cmp-fill{height:100%;border-radius:2px}
+.cmp-val{width:50px;text-align:right;font-weight:500;color:var(--t1)}
+.footer{text-align:center;font-size:11px;color:var(--t3);padding:16px;border-top:.5px solid var(--br);background:var(--bg1);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 class="sr-only">Funzeum — analiza B2B wycieczek szkolnych Lato–Jesień 2025. 282 grup, 11 397 bilety, mediana lead time 26 dni.</h1>
+
+<div class="hdr">
+  <div>
+    <div class="hdr-t">
+      <i class="ti ti-chart-bar" aria-hidden="true"></i>
+      Funzeum — analiza B2B wycieczek szkolnych
+      <span class="badge-period">Lato–Jesień 2025</span>
+    </div>
+    <div class="hdr-s">Rezerwacje: X 2024–X 2025 · Wizyty: VII–X 2025 · iKSORIS, 24.06.2026</div>
+  </div>
+  <div class="hdr-b">Mediana lead time: <strong style="color:var(--t1)">26 dni</strong> · 282 grup · 11 397 biletów</div>
+</div>
+
+<nav class="tabs" role="tablist">
+  <button class="on" onclick="showTab(0)"><i class="ti ti-layout-dashboard" aria-hidden="true"></i> Podsumowanie</button>
+  <button onclick="showTab(1)"><i class="ti ti-clock" aria-hidden="true"></i> Lead time</button>
+  <button onclick="showTab(2)"><i class="ti ti-calendar-event" aria-hidden="true"></i> Kiedy rezerwują</button>
+  <button onclick="showTab(3)"><i class="ti ti-bus" aria-hidden="true"></i> Kiedy przyjeżdżają</button>
+  <button onclick="showTab(4)"><i class="ti ti-users" aria-hidden="true"></i> Grupy</button>
+  <button onclick="showTab(5)"><i class="ti ti-bulb" aria-hidden="true"></i> Wnioski</button>
+</nav>
+
+<!-- ===== TAB 0: PODSUMOWANIE ===== -->
+<section id="p0" class="pnl on">
+  <div class="g3">
+    <div class="kpi"><div class="l">Bilety wycieczkowe</div><div class="v">11 397</div><div class="s">suma iKSORIS, wizyty VII–X 2025</div></div>
+    <div class="kpi"><div class="l">Grup wycieczek</div><div class="v">282</div><div class="s">unikalne pary rezerwacja × termin</div></div>
+    <div class="kpi"><div class="l">Śr. wielkość grupy</div><div class="v">40,4 <span style="font-size:13px;font-weight:400;color:var(--t2)">os.</span></div><div class="s">mediana 38 os. · max 369 os.</div></div>
+  </div>
+  <div class="g3">
+    <div class="kpi"><div class="l">Śr. lead time</div><div class="v">32,7 <span style="font-size:13px;font-weight:400;color:var(--t2)">dni</span></div><div class="s">od rezerwacji do wizyty</div></div>
+    <div class="kpi"><div class="l">Mediana lead time</div><div class="v">26 <span style="font-size:13px;font-weight:400;color:var(--t2)">dni</span></div><div class="s">P25 = 13 dni · P75 = 40 dni</div></div>
+    <div class="kpi"><div class="l">Zakres P10–P90</div><div class="v">7–62 <span style="font-size:13px;font-weight:400;color:var(--t2)">dni</span></div><div class="s">80% grup rezerwuje w tym oknie</div></div>
+  </div>
+
+  <div class="box pur"><i class="ti ti-switch-horizontal" aria-hidden="true"></i><strong>Porównanie z sezonem wiosennym (I–VI 2026):</strong> mediana lead time 26 vs 43 dni — lato i jesień rezerwowane są o 40% krócej z wyprzedzeniem. Profil decyzyjny jest zupełnie inny — wymaga innej strategii kampanijnej.</div>
+
+  <div class="card">
+    <div class="ct">Rozkład lead time — ile dni wcześniej grupy rezerwują?</div>
+    <div class="cw" style="height:195px"><canvas id="c0a" role="img" aria-label="Rozkład lead time. Dominuje 15-30 dni: 30.1% grup. 58.8% rezerwuje w ciągu 30 dni.">0-7: 15.6%, 8-14: 13.1%, 15-30: 30.1%, 31-60: 29.1%, 61-90: 7.1%, 91-120: 2.1%, 121-180: 2.1%, >180: 0.7%</canvas></div>
+    <div class="leg" id="leg0"></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Wolumen wizyt miesięcznie (bilety)</div>
+      <div class="cw" style="height:155px"><canvas id="c0b" role="img" aria-label="Wolumen wizyt. Październik 44.2%, Lipiec 34.5%.">Lip 3927, Sie 1060, Wrz 1367, Paź 5043</canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Aktywność rezerwacyjna (bilety / miesiąc)</div>
+      <div class="cw" style="height:155px"><canvas id="c0c" role="img" aria-label="Rezerwacje wg miesiąca. Wrzesień 2025 dominuje: 39% wszystkich biletów.">Paź24 52, Gru24 45, Lut25 135, Mar 87, Kwi 44, Maj 773, Cze 2115, Lip 1995, Sie 887, Wrz 4449, Paź25 815</canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAB 1: LEAD TIME ===== -->
+<section id="p1" class="pnl">
+  <div class="g5">
+    <div class="kpi"><div class="l">Minimum</div><div class="v">0 dni</div><div class="s">rezerwacja tego samego dnia</div></div>
+    <div class="kpi"><div class="l">P25</div><div class="v">13 dni</div><div class="s">25% grup rezerwuje ≤13 dni wcześniej</div></div>
+    <div class="kpi"><div class="l">Mediana (P50)</div><div class="v">26 dni</div><div class="s">połowa grup mieści się poniżej</div></div>
+    <div class="kpi"><div class="l">P75</div><div class="v">40 dni</div><div class="s">75% grup rezerwuje ≤40 dni wcześniej</div></div>
+    <div class="kpi"><div class="l">P90</div><div class="v">62 dni</div><div class="s">90% grup w ciągu 2 miesięcy</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Porównanie rozkładów lead time — sezon letni vs wiosenny</div>
+    <div style="padding:4px 0">
+      <div class="cmp-bar"><div class="cmp-label">0–30 dni</div><div class="cmp-track"><div class="cmp-fill" style="background:#ef4444;width:58.8%"></div></div><div class="cmp-val">58,8%</div><span style="font-size:11px;color:var(--t3);margin-left:6px">Lato 2025</span></div>
+      <div class="cmp-bar"><div class="cmp-label" style="color:var(--t3)">0–30 dni</div><div class="cmp-track"><div class="cmp-fill" style="background:#ef444466;width:32.4%"></div></div><div class="cmp-val" style="color:var(--t3)">32,4%</div><span style="font-size:11px;color:var(--t3);margin-left:6px">Zima 2026</span></div>
+      <div style="margin:10px 0 6px;font-size:11px;color:var(--t3)">— — —</div>
+      <div class="cmp-bar"><div class="cmp-label">31–90 dni</div><div class="cmp-track"><div class="cmp-fill" style="background:#1D9E75;width:36.2%"></div></div><div class="cmp-val">36,2%</div><span style="font-size:11px;color:var(--t3);margin-left:6px">Lato 2025</span></div>
+      <div class="cmp-bar"><div class="cmp-label" style="color:var(--t3)">31–90 dni</div><div class="cmp-track"><div class="cmp-fill" style="background:#1D9E7566;width:49.2%"></div></div><div class="cmp-val" style="color:var(--t3)">49,2%</div><span style="font-size:11px;color:var(--t3);margin-left:6px">Zima 2026</span></div>
+    </div>
+    <div class="box pur" style="margin-top:12px"><i class="ti ti-info-circle" aria-hidden="true"></i>W sezonie letnim niemal 60% grup rezerwuje w ciągu 30 dni (vs 32,4% zimą). Kampanie muszą działać bezpośrednio przed sezonem — długofalowe budowanie świadomości ma mniejszy zwrot niż w sezonie szkolnym.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Lead time wg miesiąca rezerwacji — jak daleko planują osoby rezerwujące w danym momencie roku?</div>
+    <div class="dscr">Wyraźny spadek: wczesni rezerwujący (X 2024–IV 2025) planują pół roku naprzód. Od maja okno gwałtownie maleje. Październik 2025 (rezerwacja na ten sam miesiąc) to tylko 13 dni średnio.</div>
+    <div class="cw" style="height:220px"><canvas id="c1a" role="img" aria-label="Lead time wg miesiąca rezerwacji. Październik 2024: 324 dni, Październik 2025: 13 dni."></canvas></div>
+    <div class="leg"><span><span class="dot" style="background:#378ADD"></span>Średnia (dni)</span><span><span class="dot" style="background:transparent;outline:2px dashed #378ADD;outline-offset:1px"></span>Mediana (dni)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Lead time wg miesiąca wizyty — jak wcześnie rezerwowane są poszczególne miesiące?</div>
+    <div class="dscr">Sierpień ma najdłuższy lead time (avg 44 dni) — grupy letnie planują wcześniej. Pozostałe miesiące mają podobne, krótkie okno (~30 dni).</div>
+    <div class="cw" style="height:190px"><canvas id="c1b" role="img" aria-label="Lead time wg miesiąca wizyty. Sierpień avg 44 dni. Pozostałe ok 30 dni."></canvas></div>
+    <div class="leg"><span><span class="dot" style="background:#1D9E75"></span>Średnia (dni)</span><span><span class="dot" style="background:transparent;outline:2px dashed #1D9E75;outline-offset:1px"></span>Mediana (dni)</span></div>
+  </div>
+</section>
+
+<!-- ===== TAB 2: KIEDY REZERWUJĄ ===== -->
+<section id="p2" class="pnl">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Dzień tygodnia rezerwacji</div>
+      <div class="dscr">Bardziej równomierny rozkład niż w sezonie zimowym. Wtorek i poniedziałek prowadzą (łącznie 42,9%).</div>
+      <div class="cw" style="height:200px"><canvas id="c2a" role="img" aria-label="Dzień tygodnia rezerwacji. Wt 22%, Pon 20.9%, Śr 18.8%. Rozkład równomierniejszy niż zimą."></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Grupy wg miesiąca złożenia rezerwacji</div>
+      <div class="dscr">Wrzesień dominuje (110 grup, 39% biletów) — szkoły wracają po wakacjach i od razu planują jesienne wycieczki.</div>
+      <div class="cw" style="height:200px"><canvas id="c2b" role="img" aria-label="Wrzesień 2025: 110 grup i 39% biletów."></canvas></div>
+    </div>
+  </div>
+  <div class="box inf"><i class="ti ti-send" aria-hidden="true"></i><strong>Optymalny dzień e-mail B2B (lato):</strong> wtorek + poniedziałek = 42,9% rezerwacji tygodniowych. Środa mniej wyróżniona niż w sezonie zimowym. Akcje mailowe rozkładać na pon–wt.</div>
+  <div class="box inf"><i class="ti ti-trending-up" aria-hidden="true"></i><strong>Kluczowy miesiąc rezerwacji = wrzesień:</strong> 110 grup i 39% biletów reservowanych w jednym miesiącu. To okno dla kampanii outbound na październikowe wycieczki. Sierpień i wrzesień razem = 46,8% biletów — intensywność kampanii powinna być największa właśnie wtedy.</div>
+  <div class="box wrn"><i class="ti ti-clock" aria-hidden="true"></i><strong>Letnie rezerwacje spontaniczne:</strong> Lipiec 2025 miał 41 grup rezerwujących z medianą lead time tylko 4 dni — to prawdopodobnie grupy obozów/kolonii decydujące na bieżąco. Klasyczna kampania e-mail jest tu za wolna — potrzebne inne kanały (telefon, social).</div>
+</section>
+
+<!-- ===== TAB 3: KIEDY PRZYJEŻDŻAJĄ ===== -->
+<section id="p3" class="pnl">
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Dzień tygodnia wizyty</div>
+      <div class="dscr">Środa i czwartek dominują (24,8% i 22,7%). Wtorek trzeci (21,6%). Piątek mniej popularne niż w sezonie zimowym.</div>
+      <div class="cw" style="height:195px"><canvas id="c3a" role="img" aria-label="Wizyty wg dnia tygodnia. Środa 24.8%, Czw 22.7%, Wt 21.6%."></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Wolumen wizyt miesięcznie (bilety)</div>
+      <div class="dscr">Dwa szczyty: Lipiec (34,5%) i Październik (44,2%). Sierpień to dolina (9,3%) — wakacje centralne, mało grup szkolnych.</div>
+      <div class="cw" style="height:195px"><canvas id="c3b" role="img" aria-label="Wolumen wizyt. Lipiec 3927, Sierpień 1060, Wrzesień 1367, Październik 5043 biletów."></canvas></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">Rozkład godzinowy wizyt — slot rozpoczęcia (bilety)</div>
+    <div class="dscr">Slot 10:00–11:00 jeszcze bardziej zdominowany niż zimą: 42,8% biletów (vs 36,7% w sezonie I–VI 2026). Razem 9:00–11:00 = 77,6%.</div>
+    <div class="cw" style="height:185px"><canvas id="c3c" role="img" aria-label="Godziny wizyt. 10:00: 42.8%, 11:00: 19.0%, 9:00: 15.8%. 9-11 razem 77.6%."></canvas></div>
+  </div>
+  <div class="box wrn"><i class="ti ti-alert-triangle" aria-hidden="true"></i><strong>Slot 10:00 krytycznie przeciążony:</strong> 42,8% biletów (vs 36,7% zimą) — wakacyjna tendencja do przychodzenia na 10:00 jest jeszcze silniejsza. Aktywna propozycja 9:00 lub 11:00 jest tu jeszcze ważniejsza niż w sezonie szkolnym.</div>
+  <div class="box inf"><i class="ti ti-sun" aria-hidden="true"></i><strong>Sierpień — dolina wolumenu:</strong> tylko 9,3% biletów mimo pełni sezonu wakacyjnego. Wycieczki szkolne ustają, a grupy obozowe/prywatne nie kompensują ubytku. To miesiąc wart dedykowanej oferty dla obozów i kolonii.</div>
+</section>
+
+<!-- ===== TAB 4: GRUPY ===== -->
+<section id="p4" class="pnl">
+  <div class="g4">
+    <div class="kpi"><div class="l">Śr. wielkość grupy</div><div class="v">40,4 os.</div><div class="s">mean</div></div>
+    <div class="kpi"><div class="l">Mediana</div><div class="v">38 os.</div><div class="s">50% grup ≤ 38 os.</div></div>
+    <div class="kpi"><div class="l">Największa</div><div class="v">369 os.</div><div class="s">5 slotów jednocześnie (07.2025)</div></div>
+    <div class="kpi"><div class="l">Najmniejsza</div><div class="v">1 os.</div><div class="s">min. (test lub korekta)</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">Rozkład wielkości grup (liczba grup na przedział)</div>
+    <div class="cw" style="height:210px"><canvas id="c4a" role="img" aria-label="Rozkład wielkości grup. Dominuje 36-50 os. z 29.1%. Grupy powyżej 100 os. to 2.1%."></canvas></div>
+  </div>
+  <div class="box inf"><i class="ti ti-school" aria-hidden="true"></i><strong>Klasa szkolna (25–50 uczniów) = 47,5% rynku</strong> (134 z 282 grup) — niemal identycznie jak w sezonie zimowym (48,1%). Komunikat „zaprojektowany pod jedną klasę" jest właściwy przez cały rok.</div>
+  <div class="box wrn"><i class="ti ti-crown" aria-hidden="true"></i><strong>Grupy &gt;100 os.</strong> w sezonie letnim to 6 wizyt z 1 011 biletami (8,9% wolumenu). Są operacyjnie wymagające — zajmują wiele równoległych slotów, co widać na wykresie godzinowym.</div>
+</section>
+
+<!-- ===== TAB 5: WNIOSKI ===== -->
+<section id="p5" class="pnl">
+  <div class="card">
+    <div class="ct">Kalendarz kampanii — kiedy uruchamiać działania B2B dla poszczególnych miesięcy wizyt?</div>
+    <div class="dscr">Oparty na średnim lead time. W sezonie letnim okna są 2× krótsze niż zimą — kampanie muszą działać tuż przed sezonem.</div>
+    <table class="tbl">
+      <thead><tr><th>Miesiąc wizyty</th><th>Grup</th><th>Śr. lead time</th><th>Okno rezerwacji</th><th>Uruchom kampanię</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:500">Lipiec 2025</td><td style="color:var(--t2)">88</td><td><span class="bdg d">33 dni</span></td><td style="color:var(--t2)">Maj–Czerwiec</td><td><span class="bdg w">Maj</span></td></tr>
+        <tr><td style="font-weight:500">Sierpień 2025</td><td style="color:var(--t2)">28</td><td><span class="bdg w">44 dni</span></td><td style="color:var(--t2)">Czerwiec–Lipiec</td><td><span class="bdg w">Czerwiec</span></td></tr>
+        <tr><td style="font-weight:500">Wrzesień 2025</td><td style="color:var(--t2)">36</td><td><span class="bdg d">30 dni</span></td><td style="color:var(--t2)">Sierpień</td><td><span class="bdg w">Sierpień</span></td></tr>
+        <tr><td style="font-weight:500">Październik 2025 ★</td><td style="color:var(--t2)">130</td><td><span class="bdg d">31 dni</span></td><td style="color:var(--t2)">Wrzesień</td><td><span class="bdg s">Sierpień–Wrzesień</span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px;color:var(--t3);margin-top:8px">★ Szczyt sezonu (44,2% biletów). Kampania sierpień–wrzesień jest najważniejszą w roku dla tego okresu.<br><span style="color:var(--td)">■</span> = bardzo krótkie okno (&lt;35 dni) — kampania musi ruszać natychmiast.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Segmentacja wg lead time — 4 typy decydentów (sezon letni)</div>
+    <div id="segs"></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Rekomendacje operacyjne — sezon Lato–Jesień</div>
+    <div class="box suc"><i class="ti ti-calendar" aria-hidden="true"></i><strong>Kampania październikowa:</strong> uruchomić w sierpniu. Październik to 44,2% biletów sezonu, a grupy rezerwują średnio 31 dni wcześniej — sierpień–wrzesień to krytyczne okno decyzyjne.</div>
+    <div class="box suc"><i class="ti ti-send" aria-hidden="true"></i><strong>E-mail B2B (lato):</strong> wtorek + poniedziałek = 42,9%. Środa mniej wyróżniona niż zimą (18,8% vs 23,1%). Rozkładać mailingi na pon–wt, nie tylko śr.</div>
+    <div class="box inf"><i class="ti ti-bell" aria-hidden="true"></i><strong>Last-minute dominuje:</strong> 58,8% grup rezerwuje w ciągu 30 dni (vs 32,4% zimą). Retargeting i komunikaty „wolne terminy" mają tu znacznie wyższy potencjał niż w sezonie szkolnym.</div>
+    <div class="box inf"><i class="ti ti-beach" aria-hidden="true"></i><strong>Sierpień — specjalna oferta:</strong> tylko 9,3% biletów w szczycie wakacyjnym. Warto testować dedykowane kampanie na obozy, kolonie, grupy prywatne — inne kanały (social, lokalne agencje eventowe) niż szkolny B2B.</div>
+    <div class="box inf"><i class="ti ti-school" aria-hidden="true"></i><strong>Nowy rok szkolny = natychmiastowe rezerwacje:</strong> wrzesień 2025 to 110 grup bookujących wycieczki na październik. Do szkół warto dotrzeć z ofertą na początku września — zanim wypełnią kalendarze innymi aktywnościami.</div>
+    <div class="box wrn"><i class="ti ti-clock" aria-hidden="true"></i><strong>Slot 10:00 bardziej przeciążony niż zimą (42,8%).</strong> Aktywna propozycja alternatyw (9:00 lub 11:00) jest krytyczna w sezonie letnim — różnica jednej godziny nic nie kosztuje sprzedażowo, a znacząco poprawia przepustowość.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Porównanie sezonów — kluczowe różnice strategiczne</div>
+    <table class="tbl">
+      <thead><tr><th>Metryka</th><th>Lato–Jesień 2025 (VII–X)</th><th>Zima–Wiosna 2026 (I–VI)</th></tr></thead>
+      <tbody>
+        <tr><td>Mediana lead time</td><td><strong>26 dni</strong></td><td>43 dni</td></tr>
+        <tr><td>% grup w &lt;30 dniach</td><td><strong>58,8%</strong></td><td>32,4%</td></tr>
+        <tr><td>Kluczowy miesiąc rezerwacji</td><td><strong>Wrzesień (39%)</strong></td><td>Marzec (24%)</td></tr>
+        <tr><td>Szczyt wizyt</td><td><strong>Październik (44%)</strong></td><td>Czerwiec (28%)</td></tr>
+        <tr><td>Slot 10:00</td><td><strong>42,8%</strong></td><td>36,7%</td></tr>
+        <tr><td>Najpopularniejszy dzień rezerwacji</td><td><strong>Wtorek (22%)</strong></td><td>Środa (23%)</td></tr>
+        <tr><td>Bilety ogółem</td><td>11 397</td><td><strong>25 394</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota"><strong>Nota metodologiczna:</strong> Dane z iKSORIS — filtr: pozycja cennika RÓWNE %wycieczka%, okres wizyt 2025-07-01–2025-10-31. Daty rezerwacji w formacie DD.MM.YYYY, wizyty: YYYY-MM-DD HH:MM-HH:MM. Lead time = data realizacji terminu minus data wprowadzenia rezerwacji. Parsowanie Python/pdfplumber, suma kontrolna potwierdzona: 11 397 ✓. N = 282 grup (unikalne pary rezerwacja × termin), 336 wierszy slot-level, brak wpisów z qty=0.</div>
+</section>
+
+<footer class="footer">
+  Funzeum Centrum Dziecięcej Wyobraźni — raport wewnętrzny B2B · Lato–Jesień 2025 · wygenerowano 24.06.2026
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const isDark=matchMedia('(prefers-color-scheme: dark)').matches;
+const TC=isDark?'#9aabb8':'#64748b', GC=isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.05)';
+const BLUE='#378ADD',TEAL='#1D9E75',PURP='#7F77DD',AMB='#EF9F27',COR='#D85A30',GRY='#888780';
+const rendered={};
+function showTab(i){
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));
+  document.getElementById('p'+i).classList.add('on');
+  document.querySelectorAll('.tabs button')[i].classList.add('on');
+  if(!rendered[i]){rendered[i]=true;renderTab(i);}
+}
+function mk(id,cfg){const el=document.getElementById(id);if(!el)return;return new Chart(el,cfg);}
+function sc(){return{x:{grid:{color:GC,drawBorder:false},ticks:{color:TC}},y:{grid:{color:GC,drawBorder:false},ticks:{color:TC}}};}
+function scXr(){const s=sc();s.x.ticks={color:TC,maxRotation:42,autoSkip:false};return s;}
+const BASE={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}};
+function tl(v){return v.toLocaleString('pl-PL');}
+function renderTab(i){if(i===0)t0();else if(i===1)t1();else if(i===2)t2();else if(i===3)t3();else if(i===4)t4();else if(i===5)t5();}
+
+function t0(){
+  const B=[{l:'0–7 dni',g:44,c:'#ef4444'},{l:'8–14 dni',g:37,c:'#f97316'},{l:'15–30 dni',g:85,c:'#f59e0b'},{l:'31–60 dni',g:82,c:'#22c55e'},{l:'61–90 dni',g:20,c:TEAL},{l:'91–120 dni',g:6,c:BLUE},{l:'121–180 dni',g:6,c:PURP},{l:'>180 dni',g:2,c:GRY}];
+  const pcts=[15.6,13.1,30.1,29.1,7.1,2.1,2.1,0.7];
+  mk('c0a',{type:'bar',data:{labels:B.map(b=>b.l),datasets:[{data:B.map(b=>b.g),backgroundColor:B.map(b=>b.c),borderRadius:4,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.raw} grup (${pcts[c.dataIndex]}%)`}}},scales:sc()}});
+  const l=document.getElementById('leg0');
+  if(l)l.innerHTML=B.map((b,i)=>`<span><span class="dot" style="background:${b.c}"></span>${b.l}: <strong>${pcts[i]}%</strong></span>`).join('');
+  mk('c0b',{type:'bar',data:{labels:['Lip 25','Sie 25','Wrz 25','Paź 25'],datasets:[{data:[3927,1060,1367,5043],backgroundColor:['#1D9E75','#1D9E7566','#1D9E7566',TEAL],borderRadius:3,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${tl(c.raw)} biletów`}}},scales:sc()}});
+  const bvols=[52,45,135,87,44,773,2115,1995,887,4449,815];
+  const blabs=['Paź 24','Gru 24','Lut 25','Mar 25','Kwi 25','Maj 25','Cze 25','Lip 25','Sie 25','Wrz 25','Paź 25'];
+  mk('c0c',{type:'bar',data:{labels:blabs,datasets:[{data:bvols,backgroundColor:blabs.map((_,i)=>i===9?BLUE:BLUE+'66'),borderRadius:3,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${tl(c.raw)} biletów`}}},scales:scXr()}});
+}
+
+function t1(){
+  const LBM={l:['Paź 24','Gru 24','Lut 25','Mar 25','Kwi 25','Maj 25','Cze 25','Lip 25','Sie 25','Wrz 25','Paź 25'],a:[324,200,153.5,124,80.3,60.9,39.8,17.5,28.1,25.9,12.9],m:[324,200,153,124,79,55,32,4,28,26,13]};
+  mk('c1a',{type:'line',data:{labels:LBM.l,datasets:[{label:'Średnia',data:LBM.a,borderColor:BLUE,backgroundColor:'transparent',borderWidth:2.5,pointRadius:4,pointBackgroundColor:BLUE,tension:.25},{label:'Mediana',data:LBM.m,borderColor:BLUE,backgroundColor:'transparent',borderWidth:2,borderDash:[7,4],pointRadius:4,pointBackgroundColor:BLUE,pointStyle:'triangle',tension:.25}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y} dni`}}},scales:scXr()}});
+  const LVM={l:['Lip 25','Sie 25','Wrz 25','Paź 25'],a:[32.7,44.4,29.8,31.0],m:[26,27,22,27]};
+  mk('c1b',{type:'bar',data:{labels:LVM.l,datasets:[{label:'Średnia (dni)',data:LVM.a,backgroundColor:TEAL,borderRadius:4,borderSkipped:false},{label:'Mediana (dni)',data:LVM.m,backgroundColor:TEAL+'66',borderRadius:4,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,labels:{color:TC,font:{size:11},boxWidth:10}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y} dni`}}},scales:sc()}});
+}
+
+function t2(){
+  const DAYS=['Pon','Wt','Śr','Czw','Pt','Sob','Nd'];
+  mk('c2a',{type:'bar',data:{labels:DAYS,datasets:[{data:[59,62,53,49,49,7,3],backgroundColor:DAYS.map((_,i)=>i<=1?BLUE:BLUE+'66'),borderRadius:4,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.raw} grup (${((c.raw/282)*100).toFixed(1)}%)`}}},scales:sc()}});
+  const blabs=['Paź 24','Gru 24','Lut 25','Mar 25','Kwi 25','Maj 25','Cze 25','Lip 25','Sie 25','Wrz 25','Paź 25'];
+  const bgrps=[1,1,2,2,3,26,41,41,27,110,28];
+  mk('c2b',{type:'bar',data:{labels:blabs,datasets:[{data:bgrps,backgroundColor:blabs.map((_,i)=>i===9?PURP:PURP+'66'),borderRadius:3,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.raw} grup`}}},scales:scXr()}});
+}
+
+function t3(){
+  mk('c3a',{type:'bar',data:{labels:['Pon','Wt','Śr','Czw','Pt','Sob','Nd'],datasets:[{data:[37,61,70,64,42,6,2],backgroundColor:TEAL,borderRadius:4,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.raw} grup (${((c.raw/282)*100).toFixed(1)}%)`}}},scales:sc()}});
+  mk('c3b',{type:'bar',data:{labels:['Lip 25','Sie 25','Wrz 25','Paź 25'],datasets:[{data:[3927,1060,1367,5043],backgroundColor:['#1D9E75','#1D9E7555','#1D9E7555',TEAL],borderRadius:3,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${tl(c.raw)} biletów`}}},scales:sc()}});
+  const SL=['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
+  const SD=[69,1802,4879,2169,1052,440,444,331,211];
+  mk('c3c',{type:'bar',data:{labels:SL,datasets:[{data:SD,backgroundColor:SL.map(s=>s==='10:00'?AMB:s==='9:00'||s==='11:00'?AMB+'aa':AMB+'55'),borderRadius:4,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${tl(c.raw)} biletów (${((c.raw/11397)*100).toFixed(1)}%)`}}},scales:sc()}});
+}
+
+function t4(){
+  const GL=['1–15','16–25','26–35','36–50','51–75','76–100','>100'];
+  mk('c4a',{type:'bar',data:{labels:GL,datasets:[{data:[29,53,52,82,49,11,6],backgroundColor:GL.map((_,i)=>i>=1&&i<=3?COR:COR+'66'),borderRadius:4,borderSkipped:false}]},options:{...BASE,plugins:{...BASE.plugins,tooltip:{callbacks:{label:c=>`${c.raw} grup (${((c.raw/282)*100).toFixed(1)}%)`}}},scales:sc()}});
+}
+
+function t5(){
+  const el=document.getElementById('segs');
+  if(!el)return;
+  const S=[
+    {l:'Last-minute (0–14 dni)',g:81,p:28.7,c:'#ef4444',d:'Niemal 3× częstszy niż zimą. Reagują na impuls — retargeting, „wolne terminy", kontakt telefoniczny w tygodniu wizyty.'},
+    {l:'Krótkoterminowi (15–30 dni)',g:85,p:30.1,c:AMB,d:'Największy segment w sezonie letnim. Planują miesiąc przed — e-mail + oferta konkretna.'},
+    {l:'Planiści (31–60 dni)',g:82,p:29.1,c:TEAL,d:'Porównywalny wolumen. Szkoły, które planują wycieczkę po wakacjach, zanim wróciły po feriach.'},
+    {l:'Wyprzedzenie >60 dni',g:34,p:12.1,c:PURP,d:'Mały segment (vs 29.5% zimą). Tylko wczesni decydenci — Maj-Czerwiec, planujący lato z dużym wyprzedzeniem.'}
+  ];
+  el.innerHTML=S.map(s=>`<div style="display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:.5px solid var(--br)"><div style="width:11px;height:11px;border-radius:2px;background:${s.c};flex-shrink:0;margin-top:3px"></div><div style="flex:1"><div style="display:flex;align-items:baseline;gap:8px;margin-bottom:3px"><strong style="font-size:13px">${s.l}</strong><span style="font-size:18px;font-weight:500;color:${s.c}">${s.p}%</span><span style="font-size:11px;color:var(--t3)">${s.g} grup</span></div><div style="font-size:12px;color:var(--t2);margin-bottom:5px">${s.d}</div><div style="height:4px;border-radius:2px;background:var(--bg2)"><div style="height:100%;border-radius:2px;background:${s.c};width:${s.p*2}%"></div></div></div></div>`).join('');
+}
+
+rendered[0]=true;
+renderTab(0);
+</script>
+</body>
+</html>
