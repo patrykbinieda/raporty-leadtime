@@ -3,328 +3,704 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Funzeum – Centrum Dziecięcej Wyobraźni, Gliwice. Raport tygodniowy B2B, czerwiec 2026.">
-<title>Funzeum – Raport tygodniowy B2B · 22.06.2026</title>
+<title>Funzeum – Raport B2B · Tydzień III · Czerwiec 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#F9FAFB;color:#111827;padding:28px 20px;max-width:860px;margin:0 auto;font-size:14px}@media(min-width:600px){body{padding:28px 32px}}
-strong{font-weight:500}
-.card{background:#fff;border:0.5px solid #E5E7EB;border-radius:12px}
-.p{padding:14px 18px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
-.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:12px}
-.lbl{font-size:10px;color:#6B7280;font-weight:500;letter-spacing:.06em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.lbl::before{content:'';display:inline-block;width:3px;height:13px;border-radius:99px;background:#D1D5DB;flex-shrink:0}
-.seg{display:flex;align-items:center;gap:10px;margin-top:22px;margin-bottom:12px;padding-bottom:10px;border-bottom:0.5px solid #E5E7EB}
-.mrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;padding-top:10px;border-top:0.5px solid #E5E7EB}
-.kl{font-size:10px;color:#6B7280;margin-bottom:4px}
-.ks{font-size:11px;color:#6B7280;margin-top:3px}
-.mbar{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.mbar-track{flex:1;height:5px;background:#F3F4F6;border-radius:99px;overflow:hidden}
-.mbar-lbl{font-size:10px;color:#6B7280;width:54px;flex-shrink:0}
-.mbar-val{font-size:10px;color:#111827;width:44px;text-align:right;flex-shrink:0}
-.mbar-pct{font-size:10px;color:#6B7280;width:26px;flex-shrink:0}
+
+:root{
+  --bg:   #0d1117;
+  --bg2:  #161b27;
+  --bg3:  #1e2438;
+  --bg4:  #252b42;
+  --t1:   #f0f4ff;
+  --t2:   #8b95b8;
+  --t3:   #4d5778;
+  --br:   #2a3050;
+  --teal: #1D9E75;
+  --teal-l:#5DCAA5;
+  --teal-d:#0a3d2e;
+  --amb:  #F59E0B;
+  --amb-l:#fbbf24;
+  --amb-d:#3d2200;
+  --red:  #EF4444;
+  --red-d:#3d0a0a;
+  --blue: #3B82F6;
+  --blue-d:#1e3a8a;
+  --r:    8px;
+}
+
+body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.55;min-height:100vh}
+
+/* ── HEADER ─────────────────────────────── */
+.hdr{
+  background:linear-gradient(135deg,#0d1829 0%,#0d2a1d 100%);
+  border-bottom:1px solid var(--br);
+  padding:22px 28px 18px;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:12px;
+}
+.hdr-left .brand{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--t3);margin-bottom:5px}
+.hdr-left .title{font-size:22px;font-weight:400;letter-spacing:-0.4px;color:var(--t1)}
+.hdr-left .sub{font-size:11px;color:var(--t3);margin-top:3px}
+.hdr-right{text-align:right}
+.hdr-right .date{font-size:14px;font-weight:500;color:var(--t2)}
+.hdr-right .period{font-size:10px;color:var(--t3);margin-top:2px}
+.badge{display:inline-block;margin-top:7px;background:var(--teal);color:#fff;font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+
+/* ── TABS ────────────────────────────────── */
+.tabs{display:flex;gap:2px;padding:14px 28px 0;border-bottom:1px solid var(--br);background:var(--bg2)}
+.tab{padding:8px 16px;font-size:12px;color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;border-radius:4px 4px 0 0;transition:all .15s;user-select:none}
+.tab:hover{color:var(--t2);background:var(--bg3)}
+.tab.active{color:var(--teal-l);border-bottom-color:var(--teal);background:var(--bg3)}
+.tab-num{font-size:9px;margin-right:4px;opacity:.5}
+
+/* ── PANELS ─────────────────────────────── */
+.panel{display:none;padding:22px 28px 32px;animation:fadein .2s}
+.panel.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── GRID ───────────────────────────────── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
+
+/* ── CARDS ──────────────────────────────── */
+.card{background:var(--bg2);border:1px solid var(--br);border-radius:var(--r);padding:16px 18px}
+.card.teal{border-left:3px solid var(--teal)}
+.card.amb{border-left:3px solid var(--amb)}
+.card.red{border-left:3px solid var(--red)}
+.card.blue{border-left:3px solid var(--blue)}
+.card.gray{border-left:3px solid var(--t3)}
+.lbl{font-size:9.5px;color:var(--t3);letter-spacing:.9px;text-transform:uppercase;margin-bottom:5px}
+.val{font-size:28px;font-weight:400;line-height:1}
+.val-sm{font-size:18px;font-weight:400;line-height:1}
+.sub{font-size:10px;color:var(--t2);margin-top:5px}
+.delta{font-size:10px;margin-top:6px;font-weight:500}
+.delta.up{color:var(--teal-l)}
+.delta.down{color:var(--red)}
+.delta.amb{color:var(--amb-l)}
+
+/* ── SECTION HEADER ─────────────────────── */
+.sh{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--br)}
+.sh-num{font-size:9px;color:var(--t3);letter-spacing:2px;text-transform:uppercase}
+.sh-title{font-size:13px;font-weight:500;color:var(--t1)}
+.sh-sub{font-size:10px;color:var(--t3);margin-left:auto}
+
+/* ── SEG BADGE ──────────────────────────── */
+.seg{display:inline-block;font-size:9px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.seg.teal{background:var(--teal)}
+.seg.amb{background:var(--amb);color:#1a0a00}
+
+/* ── PROGRESS / PIPELINE ─────────────────── */
+.pipe-meta{display:flex;gap:1px;margin:12px 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--br)}
+.pipe-step{flex:1;background:var(--bg3);padding:12px 14px;border-right:1px solid var(--br)}
+.pipe-step:last-child{border-right:none}
+.pipe-arrow{display:flex;align-items:center;justify-content:center;padding:0 6px;color:var(--t3);font-size:14px;background:var(--bg3);border-right:1px solid var(--br);flex-shrink:0}
+
+.prog-wrap{margin:12px 0 6px;display:flex;flex-direction:column;gap:5px}
+.prog-track{height:22px;border-radius:5px;overflow:hidden;display:flex;background:var(--bg4)}
+.prog-sold{background:var(--teal);display:flex;align-items:center;padding-left:10px;font-size:10px;font-weight:500;color:#fff;white-space:nowrap}
+.prog-exp{background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:10px;color:#bfdbfe;white-space:nowrap}
+.prog-drop{background:#7f1d1d;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fca5a5;white-space:nowrap}
+.prog-lbl{display:flex;justify-content:space-between;font-size:9px;color:var(--t3)}
+
+/* ── WARN BOX ────────────────────────────── */
+.warn-box{background:var(--amb-d);border:1px solid var(--amb);border-radius:var(--r);padding:10px 14px;display:flex;gap:10px;margin:10px 0}
+.warn-box .icon{font-size:16px;flex-shrink:0}
+.warn-box .text{font-size:11px;color:var(--amb-l);line-height:1.6}
+.warn-box .text b{color:#fde68a}
+
+.info-box{background:var(--blue-d);border:1px solid var(--blue);border-radius:var(--r);padding:10px 14px;display:flex;gap:10px;margin:10px 0}
+.info-box .text{font-size:11px;color:#bfdbfe;line-height:1.6}
+.info-box .text b{color:#93c5fd}
+
+/* ── ROZKŁAD TERMINÓW ────────────────────── */
+.rt-row{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.rt-lbl{font-size:10px;color:var(--t2);width:66px;flex-shrink:0}
+.rt-track{flex:1;height:16px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.rt-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:7px;font-size:8.5px;font-weight:500;color:#fff}
+.rt-val{font-size:10px;color:var(--t1);width:32px;text-align:right;flex-shrink:0;font-weight:500}
+
+/* ── TABLE ───────────────────────────────── */
+table.dt{width:100%;border-collapse:collapse;font-size:11px}
+table.dt th{background:var(--bg4);color:var(--t3);font-weight:500;padding:7px 10px;text-align:left;font-size:9px;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--br)}
+table.dt td{padding:6px 10px;border:1px solid var(--br);color:var(--t2)}
+table.dt tr:hover td{background:var(--bg3)}
+.td-r{text-align:right}
+.td-b{font-weight:500;color:var(--t1)}
+.td-teal{color:var(--teal-l);font-weight:500}
+.td-red{color:var(--red);font-weight:500}
+.td-amb{color:var(--amb-l);font-weight:500}
+.td-blue{color:#93c5fd;font-weight:500}
+.td-hl{background:var(--teal-d)!important}
+
+/* ── INSIGHT BOX ─────────────────────────── */
+.insight{background:var(--bg3);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin-bottom:8px;font-size:11px;color:var(--t2)}
+.insight.warn{border-left-color:var(--amb)}
+.insight.bad{border-left-color:var(--red)}
+.insight b{color:var(--t1)}
+
+/* ── CHART ───────────────────────────────── */
+.chart-wrap{position:relative;width:100%}
+.chart-title{font-size:9.5px;color:var(--t3);letter-spacing:.7px;text-transform:uppercase;margin-bottom:8px}
+
+/* ── NOTE ───────────────────────────────── */
+.note{background:var(--bg3);border:1px solid var(--br);border-top:2px solid var(--amb);border-radius:var(--r);padding:12px 16px;margin:20px 0 0;font-size:10px;color:var(--t3);line-height:1.7}
+.note b{color:var(--t2)}
+
+/* ── FOOTER ─────────────────────────────── */
+.ftr{text-align:center;padding:16px 28px;font-size:9px;color:var(--t3);border-top:1px solid var(--br);background:var(--bg2)}
+
+/* ── SPACERS ─────────────────────────────── */
+.sp{height:16px}.sp-sm{height:10px}
+.div{height:1px;background:var(--br);margin:12px 0}
+
+@media(max-width:640px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .hdr{flex-direction:column;align-items:flex-start}
+  .panel{padding:16px 16px 24px}
+  .tabs{padding:10px 16px 0;overflow-x:auto}
+  .pipe-meta{flex-direction:column}
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="card" style="padding:18px 22px;margin-bottom:20px;background:#F9FAFB">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
-    <div>
-      <p style="font-size:11px;color:#6B7280">Centrum Dziecięcej Wyobraźni · Gliwice</p>
-      <p style="font-size:17px;font-weight:500;color:#111827;margin-top:4px">Funzeum – Raport tygodniowy B2B</p>
-    </div>
-    <div style="text-align:right">
-      <p style="font-size:17px;font-weight:500;color:#111827">22.06.2026</p>
-      <p style="font-size:11px;color:#6B7280;margin-top:3px">Czerwiec 2026</p>
-    </div>
+<!-- ══ HEADER ══════════════════════════════ -->
+<header class="hdr">
+  <div class="hdr-left">
+    <div class="brand">Centrum Dziecięcej Wyobraźni · Gliwice</div>
+    <div class="title">Raport B2B · Tydzień III</div>
+    <div class="sub">Funzeum sp. z o.o. &nbsp;·&nbsp; Czerwiec 2026</div>
   </div>
-  <p style="font-size:11px;color:#6B7280;margin-top:10px;padding-top:10px;border-top:0.5px solid #E5E7EB">Raport śledzi dwa niezależne segmenty: <strong>grupy wycieczkowe</strong> i <strong>urodzinki</strong>. Główna metryka: <strong>sprzedane bilety</strong> (płacący uczestnicy). Opiekunowie bezpłatni wykazywani oddzielnie jako informacja operacyjna. Klient płaci na miejscu bez zaliczki — wskaźniki realizacji odzwierciedlają faktyczną sprzedaż.</p>
-</div>
+  <div class="hdr-right">
+    <div class="date">22 czerwca 2026</div>
+    <div class="period">Tydzień III · 15–21 czerwca 2026</div>
+    <div class="badge">Czerwiec 2026 — prognoza miesięczna</div>
+  </div>
+</header>
 
-<!-- ═══ A: PRZYROST ═══ -->
-<div class="lbl">A — Przyrost rezerwacji miesięcznych (01–22.06.2026) · nowe rezerwacje na przyszłość</div>
-<div class="g2" style="margin-bottom:10px">
-  <div class="card"><div class="p">
-    <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
-      <div style="width:3px;height:14px;border-radius:99px;background:#059669"></div>
-      <p style="font-size:11px;font-weight:500;color:#059669">Grupy wycieczkowe</p>
-    </div>
-    <div class="mrow">
-      <div><p class="kl">biletów</p><p style="font-size:28px;font-weight:500;color:#059669;line-height:1">1 215</p></div>
-      <div><p class="kl">rezerwacji</p><p style="font-size:28px;font-weight:500;color:#111827;line-height:1">46</p></div>
-    </div>
-    <p style="font-size:10px;color:#6B7280;margin-top:8px">3 rez. bez biletów (w toku)</p>
-  </div></div>
-  <div class="card"><div class="p">
-    <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
-      <div style="width:3px;height:14px;border-radius:99px;background:#D97706"></div>
-      <p style="font-size:11px;font-weight:500;color:#D97706">Urodzinki</p>
-    </div>
-    <div class="mrow">
-      <div><p class="kl">biletów</p><p style="font-size:28px;font-weight:500;color:#D97706;line-height:1">119</p></div>
-      <div><p class="kl">rezerwacji</p><p style="font-size:28px;font-weight:500;color:#111827;line-height:1">15</p></div>
-    </div>
-    <p style="font-size:10px;color:#6B7280;margin-top:8px">terminy: czerwiec–sierpień 2026</p>
-  </div></div>
-</div>
+<!-- ══ TABS ════════════════════════════════ -->
+<nav class="tabs" id="tabs">
+  <div class="tab active" data-tab="0"><span class="tab-num">01</span>Podsumowanie</div>
+  <div class="tab" data-tab="1"><span class="tab-num">02</span>Wycieczki</div>
+  <div class="tab" data-tab="2"><span class="tab-num">03</span>Urodzinki</div>
+  <div class="tab" data-tab="3"><span class="tab-num">04</span>Kontekst</div>
+</nav>
 
-<div class="card" style="margin-bottom:0"><div class="p">
-  <p style="font-size:11px;font-weight:500;color:#6B7280;margin-bottom:10px">Rozkład przyrostu wycieczek wg miesiąca realizacji</p>
-  <div class="mbar">
-    <p class="mbar-lbl">Lipiec</p>
-    <div class="mbar-track"><div style="height:100%;width:47%;background:#059669;border-radius:99px"></div></div>
-    <p class="mbar-val">604 os.</p><p class="mbar-pct">47%</p>
-  </div>
-  <div class="mbar">
-    <p class="mbar-lbl">Czerwiec</p>
-    <div class="mbar-track"><div style="height:100%;width:43%;background:#059669;border-radius:99px"></div></div>
-    <p class="mbar-val">549 os.</p><p class="mbar-pct">43%</p>
-  </div>
-  <div class="mbar">
-    <p class="mbar-lbl">Wrzesień</p>
-    <div class="mbar-track"><div style="height:100%;width:8%;background:#D1D5DB;border-radius:99px"></div></div>
-    <p class="mbar-val">104 os.</p><p class="mbar-pct">8%</p>
-  </div>
-  <div class="mbar" style="margin-bottom:0">
-    <p class="mbar-lbl">Sierpień</p>
-    <div class="mbar-track"><div style="height:100%;width:2.5%;background:#D1D5DB;border-radius:99px"></div></div>
-    <p class="mbar-val">32 os.</p><p class="mbar-pct">3%</p>
-  </div>
-  <p style="font-size:10px;color:#6B7280;margin-top:7px">Główny potencjał: lipiec (wakacje). Ponad 90% przyrostu trafia na czerwiec i lipiec.</p>
-</div></div>
+<!-- ══ PANEL 0 — PODSUMOWANIE ══════════════ -->
+<section class="panel active" id="p0">
 
-<!-- ═══ B: WYCIECZKI REALIZACJA ═══ -->
-<div class="seg">
-  <div style="width:4px;height:20px;border-radius:99px;background:#059669"></div>
-  <p style="font-size:14px;font-weight:500;color:#059669">Grupy wycieczkowe — realizacja czerwca</p>
-</div>
+  <div class="sh">
+    <span class="sh-num">01</span>
+    <span class="sh-title">Podsumowanie — stan na 22.06.2026</span>
+    <span class="sh-sub">dane: 01–22 czerwca 2026</span>
+  </div>
 
-<div style="background:#FFFBEB;border:0.5px solid #FDE68A;border-radius:8px;padding:10px 14px;margin-bottom:10px;display:flex;gap:8px">
-  <span style="color:#92400E;flex-shrink:0;font-size:13px">⚠</span>
-  <p style="font-size:11px;color:#92400E">Stan na 22.06: Rezerwacje na 22–30.06 zaktualizowane do <strong>722 os.</strong> (pierwotnie 842, korekta −120, −14,3%). Prognozowany dalszy odpad: ~100–120 os.</p>
-</div>
-
-<div class="lbl">Prognoza realizacji bieżącego miesiąca · metryka: sprzedane bilety</div>
-<div class="card" style="margin-bottom:12px"><div class="p">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
-    <div>
-      <p class="kl">Szacunkowa baza płacących</p>
-      <p style="font-size:24px;font-weight:500;color:#111827;line-height:1">~8 100 <span style="font-size:12px;color:#6B7280;font-weight:400">os.</span></p>
-      <p style="font-size:10px;color:#6B7280;margin-top:4px">9 103 zarezerwowanych (z opiek.) × 89%</p>
+  <div class="g4">
+    <div class="card teal">
+      <div class="lbl">Wycieczki · aktywne rez.</div>
+      <div class="val" style="color:var(--teal-l)">46</div>
+      <div class="sub">rezerwacji grup</div>
+      <div class="delta up">1 215 biletów narastająco</div>
     </div>
-    <div style="text-align:right">
-      <p class="kl">Prognoza sprzedanych biletów</p>
-      <p style="font-size:24px;font-weight:500;color:#059669;line-height:1">~6 698 <span style="font-size:12px;color:#6B7280;font-weight:400">biletów</span></p>
-      <p style="font-size:10px;color:#6B7280;margin-top:4px">wskaźnik realizacji 80,7%</p>
+    <div class="card amb">
+      <div class="lbl">Urodzinki · aktywne rez.</div>
+      <div class="val" style="color:var(--amb-l)">15</div>
+      <div class="sub">rezerwacji</div>
+      <div class="delta amb">119 biletów narastająco</div>
+    </div>
+    <div class="card teal">
+      <div class="lbl">Sprzedane bilety (do 22.06)</div>
+      <div class="val" style="color:var(--teal-l)">6 179</div>
+      <div class="sub">płacący uczestnicy</div>
+      <div class="delta up">76,3% szac. bazy</div>
+    </div>
+    <div class="card blue">
+      <div class="lbl">Prognoza końcowa</div>
+      <div class="val" style="color:#93c5fd">~6 698</div>
+      <div class="sub">biletów do końca miesiąca</div>
+      <div class="delta" style="color:#93c5fd">realizacja 80,7%</div>
     </div>
   </div>
-  <div style="display:flex;height:11px;border-radius:99px;overflow:hidden;margin-bottom:9px">
-    <div style="width:76.3%;background:#059669"></div>
-    <div style="width:6.4%;background:#2563EB"></div>
-    <div style="flex:1;background:#F3F4F6"></div>
+
+  <div class="sp-sm"></div>
+
+  <div class="warn-box">
+    <div class="icon">⚠️</div>
+    <div class="text">
+      <b>Korekta rezerwacji 22–30.06:</b> 722 os. (pierwotnie 842, korekta −120 os., −14,3%).
+      Prognozowany dalszy odpad: ~100–120 os. — powyżej historycznej normy.
+    </div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-    <div>
-      <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
-        <div style="width:7px;height:7px;border-radius:99px;background:#059669"></div>
-        <p style="font-size:10px;color:#6B7280">Sprzedane bilety (do 22.06)</p>
+
+  <!-- Pipeline -->
+  <div class="sp-sm"></div>
+  <div class="sh">
+    <span class="sh-num">—</span>
+    <span class="sh-title">Prognoza realizacji — wycieczki grupowe</span>
+    <span class="sh-sub">baza: szacowane płacące rezerwacje</span>
+  </div>
+
+  <div class="pipe-meta">
+    <div class="pipe-step">
+      <div class="lbl">Zarezerwowane (z opiek.)</div>
+      <div class="val">9 103</div>
+      <div class="sub">raport dzienny iKSORIS</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="lbl">Szacowane płacące ×0,89</div>
+      <div class="val">~8 100</div>
+      <div class="sub">korekta o opiekunów ~11%</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="lbl">Sprzedane (do 22.06)</div>
+      <div class="val" style="color:var(--teal-l)">6 179</div>
+      <div class="sub">76,3% szac. bazy ✓</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="lbl">Oczekiwane (23–30.06)</div>
+      <div class="val" style="color:#93c5fd">~519</div>
+      <div class="sub">643 płacących × 80,7%</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step" style="background:var(--red-d)">
+      <div class="lbl">Prognozowany odpad</div>
+      <div class="val" style="color:#fca5a5">~1 402</div>
+      <div class="sub">17,3% szac. bazy</div>
+    </div>
+  </div>
+
+  <div class="prog-wrap">
+    <div class="prog-track">
+      <div class="prog-sold" style="width:76.3%">76,3% — 6 179 sprzedane</div>
+      <div class="prog-exp" style="width:6.4%">+6,4%</div>
+      <div class="prog-drop" style="flex:1">17,3% odpad</div>
+    </div>
+    <div class="prog-lbl">
+      <span>0</span>
+      <span style="color:#93c5fd">Prognoza końcowa: ~6 698</span>
+      <span>Baza: ~8 100</span>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;background:var(--bg3);border:1px solid var(--br);border-radius:var(--r);padding:10px 16px;margin-top:8px">
+    <span style="font-size:11px;color:var(--t2)">Wykonanie prognozy miesięcznej (6 179 z 6 698)</span>
+    <span style="font-size:14px;font-weight:500;color:var(--teal-l)">92,3%</span>
+  </div>
+
+  <div class="sp"></div>
+
+  <div class="g3">
+    <div class="card teal">
+      <div class="lbl">Sprzedane bilety</div>
+      <div class="val" style="color:var(--teal-l)">6 179</div>
+      <div class="sub">płacący uczestnicy wycieczek</div>
+    </div>
+    <div class="card gray">
+      <div class="lbl">Opiekunowie bezpłatni</div>
+      <div class="val" style="color:var(--t2)">734</div>
+      <div class="sub">do 21.06 · info operacyjna</div>
+    </div>
+    <div class="card gray">
+      <div class="lbl">Łącznie z opiekunami</div>
+      <div class="val" style="color:var(--t2)">~6 913</div>
+      <div class="sub">szacunek · info operacyjna</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Metodologia:</b> Raport śledzi dwa niezależne segmenty — grupy wycieczkowe i urodzinki.
+    Główna metryka: sprzedane bilety (płacący uczestnicy). Opiekunowie bezpłatni wykazywani oddzielnie.
+    Klient płaci na miejscu bez zaliczki — wskaźniki realizacji odzwierciedlają faktyczną sprzedaż.
+    Kolumna „rezerwacje" w raporcie dziennym zawiera płacących i opiekunów łącznie (9 103).
+    Kolumna „realizacje" zawiera wyłącznie sprzedane bilety bez opiekunów (6 179).
+  </div>
+
+</section>
+
+<!-- ══ PANEL 1 — WYCIECZKI ══════════════════ -->
+<section class="panel" id="p1">
+
+  <div class="sh">
+    <span class="sh-num">02</span>
+    <span class="sh-title">Wycieczki grupowe</span>
+    <span class="sh-sub">01.06 – 22.06.2026</span>
+  </div>
+
+  <span class="seg teal">Przyrost rezerwacji · narastająco 01–22.06</span>
+
+  <div class="g4">
+    <div class="card teal">
+      <div class="lbl">Aktywne rezerwacje</div>
+      <div class="val" style="color:var(--teal-l)">46</div>
+      <div class="sub">grup wycieczkowych</div>
+      <div class="delta up">3 rez. bez biletów (w toku)</div>
+    </div>
+    <div class="card teal">
+      <div class="lbl">Bilety łącznie</div>
+      <div class="val" style="color:var(--teal-l)">1 215</div>
+      <div class="sub">uczestników</div>
+    </div>
+    <div class="card blue">
+      <div class="lbl">Sprzedane do 22.06</div>
+      <div class="val" style="color:#93c5fd">6 179</div>
+      <div class="sub">realizacja miesiąca</div>
+    </div>
+    <div class="card blue">
+      <div class="lbl">Prognoza końcowa</div>
+      <div class="val" style="color:#93c5fd">~6 698</div>
+      <div class="sub">do 30.06 · wskaźnik 80,7%</div>
+    </div>
+  </div>
+
+  <div class="sp-sm"></div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="lbl">Rozkład przyrostu — miesiąc realizacji</div>
+      <div class="sp-sm"></div>
+      <div class="rt-row">
+        <span class="rt-lbl">Lipiec ★</span>
+        <div class="rt-track"><div class="rt-fill" style="width:47%;background:var(--teal)">47%</div></div>
+        <span class="rt-val">604</span>
       </div>
-      <p style="font-size:20px;font-weight:500;color:#059669">6 179</p>
-      <p style="font-size:10px;color:#6B7280;margin-top:2px">76,3% szac. bazy</p>
+      <div class="rt-row">
+        <span class="rt-lbl">Czerwiec</span>
+        <div class="rt-track"><div class="rt-fill" style="width:43%;background:#10b981;color:#ecfdf5">43%</div></div>
+        <span class="rt-val">549</span>
+      </div>
+      <div class="rt-row">
+        <span class="rt-lbl">Wrzesień</span>
+        <div class="rt-track"><div class="rt-fill" style="width:8%;background:var(--bg4);font-size:0"> </div></div>
+        <span class="rt-val">104</span>
+      </div>
+      <div class="rt-row">
+        <span class="rt-lbl">Sierpień</span>
+        <div class="rt-track"><div class="rt-fill" style="width:3%;background:var(--bg4);font-size:0"> </div></div>
+        <span class="rt-val">32</span>
+      </div>
+      <div class="div"></div>
+      <div style="font-size:10px;color:var(--teal-l)">★ Lipiec dominuje — ponad 90% przyrostu trafia na Cze+Lip</div>
     </div>
+
+    <div class="card">
+      <div class="lbl">Prognoza vs. realizacja · szczegół</div>
+      <div class="sp-sm"></div>
+      <table class="dt">
+        <thead>
+          <tr><th>Metryka</th><th class="td-r">Wartość</th><th class="td-r">%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Baza płacących (szac.)</td><td class="td-r td-b">~8 100</td><td class="td-r">—</td></tr>
+          <tr><td>Sprzedane do 22.06</td><td class="td-r td-teal">6 179</td><td class="td-r td-teal">76,3%</td></tr>
+          <tr><td>Oczekiwane 23–30.06</td><td class="td-r td-blue">~519</td><td class="td-r td-blue">6,4%</td></tr>
+          <tr class="td-hl"><td class="td-b">Prognoza końcowa</td><td class="td-r td-teal">~6 698</td><td class="td-r td-teal">80,7%</td></tr>
+          <tr><td>Prognozowany odpad</td><td class="td-r td-red">~1 402</td><td class="td-r td-red">17,3%</td></tr>
+          <tr><td>Wykonanie prognozy</td><td class="td-r" colspan="2" style="color:var(--teal-l);font-weight:500">92,3% (6 179 / 6 698)</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box" style="margin-top:10px">
+        <div class="icon" style="font-size:13px">⚠️</div>
+        <div class="text" style="font-size:10px">Rez. 22–30.06: 722 os. (było 842, −120, −14,3%). Dalszy odpad: ~100–120 os.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-sm"></div>
+
+  <!-- Daily chart -->
+  <div class="card">
+    <div class="chart-title">Dzienna sprzedaż biletów — 01–22.06.2026 (płacący uczestnicy)</div>
+    <div class="chart-wrap" style="height:200px">
+      <canvas id="chartDaily"></canvas>
+    </div>
+    <div style="font-size:9px;color:var(--t3);margin-top:6px">Brak słupka = brak wycieczek grupowych (weekendy / brak grup). Szczyt: 10.06 — 730 biletów.</div>
+  </div>
+
+</section>
+
+<!-- ══ PANEL 2 — URODZINKI ══════════════════ -->
+<section class="panel" id="p2">
+
+  <div class="sh">
+    <span class="sh-num">03</span>
+    <span class="sh-title">Urodzinki</span>
+    <span class="sh-sub">01.06 – 22.06.2026</span>
+  </div>
+
+  <span class="seg amb">Przyrost rezerwacji · narastająco</span>
+
+  <div class="g4">
+    <div class="card amb">
+      <div class="lbl">Aktywne rezerwacje</div>
+      <div class="val" style="color:var(--amb-l)">15</div>
+      <div class="sub">urodzinowych</div>
+    </div>
+    <div class="card amb">
+      <div class="lbl">Bilety łącznie</div>
+      <div class="val" style="color:var(--amb-l)">119</div>
+      <div class="sub">uczestników</div>
+      <div class="delta amb">terminy: Cze–Sie 2026</div>
+    </div>
+    <div class="card amb">
+      <div class="lbl">Zarezerwowane Czerwiec</div>
+      <div class="val" style="color:var(--amb-l)">~145</div>
+      <div class="sub">biletów (eventy 01–30.06)</div>
+    </div>
+    <div class="card">
+      <div class="lbl">Prognoza (odpad 8%)</div>
+      <div class="val-sm" style="color:var(--amb-l)">~133</div>
+      <div class="sub">biletów do końca miesiąca</div>
+      <div class="delta" style="color:#fca5a5">odpad ~12 biletów</div>
+    </div>
+  </div>
+
+  <div class="sp"></div>
+
+  <div class="info-box">
+    <div class="icon" style="font-size:16px;flex-shrink:0;color:#93c5fd">ℹ</div>
+    <div class="text">
+      <b>Realizacje urodzinki — brak danych na dzień 22.06.</b><br>
+      Wymaga: Sprzedaż biletów → Urodzinki → Termin: 01–22.06 → do wygenerowania przez Julię z BOK.
+      Dane dostępne w raporcie za tydzień IV (29.06): zrealizowano 209 uczestników w całym czerwcu.
+    </div>
+  </div>
+
+  <div class="sp-sm"></div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="lbl">Prognoza realizacji — Urodzinki Czerwiec</div>
+      <div class="sp-sm"></div>
+      <div class="prog-wrap">
+        <div class="prog-track">
+          <div class="prog-sold" style="width:92%;background:var(--amb)">92% — ~133 biletów prognoza</div>
+          <div class="prog-drop" style="width:8%">8%</div>
+        </div>
+        <div class="prog-lbl">
+          <span>0</span>
+          <span>Zarezerwowane: ~145</span>
+        </div>
+      </div>
+      <div class="div"></div>
+      <table class="dt">
+        <thead><tr><th>Metryka</th><th class="td-r">Wartość</th></tr></thead>
+        <tbody>
+          <tr><td>Zarezerwowane na Czerwiec</td><td class="td-r td-amb">~145 biletów</td></tr>
+          <tr><td>Prognoza realizacji (92%)</td><td class="td-r td-amb">~133 biletów</td></tr>
+          <tr><td>Prognozowany odpad (8%)</td><td class="td-r td-red">~12 biletów</td></tr>
+          <tr><td>Aktywne rezerwacje narastająco</td><td class="td-r td-amb">15 rez. / 119 biletów</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="lbl">Kontekst — porównanie z raportem 29.06</div>
+      <div class="sp-sm"></div>
+      <div class="insight">
+        <b>Stan na 22.06:</b> 15 rezerwacji / 119 biletów aktywnych. Realizacje urodzin wymagały oddzielnego raportu z BOK — brak danych na moment tworzenia tego raportu.
+      </div>
+      <div class="insight" style="border-left-color:var(--amb)">
+        <b>Znany wynik (raport 29.06):</b> Czerwiec 2026 zamknął się z 209 uczestnikami urodzinkowymi (arkusz wewnętrzny). Tydzień IV (22–28.06): 71 uczestników.
+      </div>
+      <div class="insight">
+        <b>Przyrost w tygodniu IV:</b> +2 rezerwacje / +16 biletów — wzrost z 15/119 do 17/135 między raportami.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ PANEL 3 — KONTEKST ═══════════════════ -->
+<section class="panel" id="p3">
+
+  <div class="sh">
+    <span class="sh-num">04</span>
+    <span class="sh-title">Kontekst — dynamika i trendy</span>
+    <span class="sh-sub">01.06 – 21.06.2026</span>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="chart-title">Trend miesięczny 2026 (sprzedane bilety wycieczek)</div>
+      <div class="chart-wrap" style="height:180px">
+        <canvas id="chartMonthly"></canvas>
+      </div>
+      <div style="font-size:9px;color:var(--t3);margin-top:6px">* Czerwiec: bilety do 22.06 (bez opiekunów)</div>
+    </div>
+    <div class="card">
+      <div class="chart-title">Dzienny przyrost rezerwacji · 01–21.06.2026 (nowi uczestnicy)</div>
+      <div class="chart-wrap" style="height:180px">
+        <canvas id="chartPrzyrost"></canvas>
+      </div>
+      <div style="font-size:9px;color:var(--t3);margin-top:6px">Szczyt 08.06: 404 os. — duże zamówienie grupowe</div>
+    </div>
+  </div>
+
+  <div class="sp-sm"></div>
+
+  <!-- Anulacje -->
+  <div class="sh">
+    <span class="sh-num">—</span>
+    <span class="sh-title">Anulacje i korekty — Czerwiec (01–21.06)</span>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="g3" style="gap:8px;margin-bottom:0">
+        <div style="background:var(--bg3);border-radius:6px;padding:12px">
+          <div class="lbl">Łączne anulacje</div>
+          <div class="val-sm" style="color:var(--t1)">76</div>
+          <div class="sub">zdarzeń w systemie</div>
+        </div>
+        <div style="background:var(--red-d);border:1px solid var(--red);border-radius:6px;padding:12px">
+          <div class="lbl">Faktyczne rezygnacje</div>
+          <div class="val-sm" style="color:#fca5a5">~66</div>
+          <div class="sub">10 to zmiany terminu</div>
+        </div>
+        <div style="background:var(--red-d);border:1px solid var(--red);border-radius:6px;padding:12px">
+          <div class="lbl">Peak — tydzień II</div>
+          <div class="val-sm" style="color:#fca5a5">33</div>
+          <div class="sub">43% wszystkich anulacji</div>
+        </div>
+      </div>
+    </div>
+
     <div>
-      <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
-        <div style="width:7px;height:7px;border-radius:99px;background:#2563EB"></div>
-        <p style="font-size:10px;color:#6B7280">Oczekiwane (23–30.06)</p>
+      <div class="insight bad">
+        <b>Szczyt anulacji: tydzień II (08–14.06) — 33 anulacji (43%)</b><br>
+        Najwyższa koncentracja odwołań w miesiącu. Możliwe zderzenie terminów szkolnych.
       </div>
-      <p style="font-size:20px;font-weight:500;color:#2563EB">~519</p>
-      <p style="font-size:10px;color:#6B7280;margin-top:2px">643 płacących × 80,7%</p>
-    </div>
-    <div>
-      <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
-        <div style="width:7px;height:7px;border-radius:99px;background:#D1D5DB"></div>
-        <p style="font-size:10px;color:#6B7280">Prognozowany odpad</p>
+      <div class="insight warn">
+        <b>Korekta 22–30.06: −120 os. (−14,3%)</b><br>
+        Zaktualizowano do 722 os. (pierwotnie 842). Prognozowany dalszy odpad ~100–120 os. powyżej hist. normy 19,3%.
       </div>
-      <p style="font-size:20px;font-weight:500;color:#DC2626">~1 402</p>
-      <p style="font-size:10px;color:#6B7280;margin-top:2px">17,3% szac. bazy</p>
-    </div>
-  </div>
-  <div style="margin-top:10px;padding-top:10px;border-top:0.5px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center">
-    <p style="font-size:11px;color:#6B7280">Wykonanie prognozy biletów (6 179 z 6 698)</p>
-    <p style="font-size:13px;font-weight:500;color:#059669">92,3%</p>
-  </div>
-</div></div>
-
-<div class="lbl">Szczegóły sprzedaży (stan na 22.06.2026)</div>
-<div class="g3">
-  <div class="card"><div class="p">
-    <p style="font-size:11px;color:#6B7280;font-weight:500;margin-bottom:4px">Sprzedane bilety</p>
-    <p style="font-size:22px;font-weight:500;color:#059669">6 179</p>
-    <p class="ks">płacący uczestnicy</p>
-  </div></div>
-  <div class="card" style="background:#F9FAFB"><div class="p">
-    <p style="font-size:11px;color:#6B7280;font-weight:500;margin-bottom:4px">Opiekunowie bezpłatni</p>
-    <p style="font-size:18px;font-weight:500;color:#6B7280">734</p>
-    <p class="ks">info operacyjna · do 21.06</p>
-  </div></div>
-  <div class="card" style="background:#F9FAFB"><div class="p">
-    <p style="font-size:11px;color:#6B7280;font-weight:500;margin-bottom:4px">Łącznie z opiekunami</p>
-    <p style="font-size:18px;font-weight:500;color:#6B7280">~6 913</p>
-    <p class="ks">info operacyjna · szacunek</p>
-  </div></div>
-</div>
-
-<div class="card" style="margin-top:12px;margin-bottom:4px"><div class="p">
-  <p style="font-size:12px;color:#6B7280;font-weight:500;margin-bottom:10px">Dzienna sprzedaż biletów · 01–22.06.2026</p>
-  <canvas id="frekChart" style="width:100%;height:180px"></canvas>
-  <p style="font-size:10px;color:#6B7280;margin-top:5px">Metryka: sprzedane bilety (płacący). Brak słupka = brak wycieczek grupowych (weekendy/brak grup).</p>
-</div></div>
-
-<!-- ═══ C: URODZINY ═══ -->
-<div class="seg">
-  <div style="width:4px;height:20px;border-radius:99px;background:#D97706"></div>
-  <p style="font-size:14px;font-weight:500;color:#D97706">Urodzinki — realizacja czerwca</p>
-</div>
-<div class="lbl">Prognoza realizacji bieżącego miesiąca · metryka: sprzedane bilety</div>
-<div class="g2" style="margin-bottom:4px">
-  <div class="card"><div class="p">
-    <p style="font-size:11px;color:#6B7280;font-weight:500;margin-bottom:6px">Zarezerwowane na czerwiec</p>
-    <p style="font-size:22px;font-weight:500;color:#D97706">~145</p>
-    <p class="ks">biletów · eventy 01–30.06</p>
-    <div style="margin-top:10px;padding-top:10px;border-top:0.5px solid #E5E7EB">
-      <p class="kl">Prognoza biletów (92%)</p>
-      <p style="font-size:18px;font-weight:500;color:#D97706">~133 <span style="font-size:11px;color:#6B7280">biletów</span></p>
-      <p style="font-size:10px;color:#6B7280;margin-top:2px">odpad ~12 biletów (hist. ~8%)</p>
-    </div>
-  </div></div>
-  <div style="background:#EFF6FF;border:0.5px solid #BFDBFE;border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;justify-content:center">
-    <div style="display:flex;align-items:flex-start;gap:8px">
-      <span style="color:#1D4ED8;font-size:16px;flex-shrink:0">ℹ</span>
-      <div>
-        <p style="font-size:12px;font-weight:500;color:#1D4ED8;margin-bottom:5px">Realizacje urodzin — brak danych</p>
-        <p style="font-size:11px;color:#1D4ED8">Wymaga: Sprzedaż biletów · Urodzinki · Termin: 01–22.06 · do wygenerowania przez Julię z BOK</p>
+      <div class="insight">
+        <b>~10 anulacji to zmiany organizacyjne</b><br>
+        Grupy przeniesione na inny termin/wariant — nie są faktycznymi rezygnacjami. Rzeczywiste: ~66.
       </div>
     </div>
   </div>
-</div>
 
-<!-- ═══ D: KONTEKST ═══ -->
-<div class="seg">
-  <div style="width:4px;height:20px;border-radius:99px;background:#D1D5DB"></div>
-  <p style="font-size:14px;font-weight:500;color:#6B7280">Kontekst — dynamika i trendy 2026</p>
-</div>
-
-<div class="g2" style="margin-bottom:12px">
-  <div class="card"><div class="p">
-    <p style="font-size:12px;color:#6B7280;font-weight:500;margin-bottom:10px">Sprzedaż biletów miesięcznie · 2026</p>
-    <canvas id="trendChart" style="width:100%;height:158px"></canvas>
-    <p style="font-size:10px;color:#6B7280;margin-top:5px">* Czerwiec: bilety do 22.06 (bez opiekunów)</p>
-  </div></div>
-  <div class="card"><div class="p">
-    <p style="font-size:12px;color:#6B7280;font-weight:500;margin-bottom:10px">Dzienny przyrost rezerwacji · 01–21.06.2026</p>
-    <canvas id="przyrostChart" style="width:100%;height:158px"></canvas>
-    <p style="font-size:10px;color:#6B7280;margin-top:5px">Szczyt 08.06: 13 rez. / 404 os. — duże zamówienie grupowe</p>
-  </div></div>
-</div>
-
-<div class="card" style="margin-bottom:12px"><div class="p">
-  <p style="font-size:12px;color:#6B7280;font-weight:500;margin-bottom:10px">Anulacje i korekty rezerwacji — czerwiec (01–21.06)</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">
-    <div style="background:#F9FAFB;border-radius:8px;padding:10px 12px">
-      <p class="kl">Łączne anulacje</p>
-      <p style="font-size:20px;font-weight:500;color:#111827">76</p>
-      <p class="ks">zdarzeń w systemie</p>
-    </div>
-    <div style="background:#F9FAFB;border-radius:8px;padding:10px 12px">
-      <p class="kl">Faktyczne rezygnacje</p>
-      <p style="font-size:20px;font-weight:500;color:#DC2626">~66</p>
-      <p class="ks">10 to zmiany terminu</p>
-    </div>
-    <div style="background:#F9FAFB;border-radius:8px;padding:10px 12px">
-      <p class="kl">Peak anulacji — II tydzień</p>
-      <p style="font-size:20px;font-weight:500;color:#DC2626">33</p>
-      <p class="ks">43% wszystkich anulacji</p>
-    </div>
+  <div class="note">
+    <b>Uwaga metodyczna:</b> Kolumna „rezerwacje – uczestnicy" w raporcie dziennym zawiera płacących i opiekunów łącznie (9 103).
+    Kolumna „realizacje – uczestnicy" zawiera wyłącznie sprzedane bilety (6 179). Prognoza opiera się na szacunkowej bazie
+    ~8 100 płacących (9 103 × 89%; hist. udział opiekunów ~11%).
+    Dane anulacji wg terminu wizyty — nie daty anulowania.
   </div>
-  <p style="font-size:11px;color:#6B7280;padding-top:10px;border-top:0.5px solid #E5E7EB">Anulacje na terminy 22–30.06: −120 os. od pierwotnych rezerwacji (−14,3%), zaktualizowane do 722 os. Prognozowany dalszy odpad ~100–120 os. — powyżej historycznej normy 19,3%, co znalazło odzwierciedlenie w zaktualizowanej prognozie.</p>
-</div></div>
 
-<!-- METHODOLOGY NOTE -->
-<div style="background:#F9FAFB;border:0.5px solid #E5E7EB;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:#6B7280">
-  <strong>Uwaga metodyczna:</strong> Kolumna „rezerwacje – uczestnicy" w raporcie dziennym zawiera płacących i opiekunów łącznie (9 103). Kolumna „realizacje – uczestnicy" zawiera wyłącznie sprzedane bilety bez opiekunów (6 179). Prognoza biletów opiera się na szacunkowej bazie ~8 100 płacących (9 103 × 89%; hist. udział opiekunów ~11%).
-</div>
+</section>
 
-<p style="font-size:10px;color:#9CA3AF;text-align:center;padding-bottom:4px">Funzeum sp. z o.o. · Centrum Dziecięcej Wyobraźni · wygenerowano 22.06.2026 · dane: iKSORIS + arkusze wewnętrzne</p>
+<footer class="ftr">
+  Funzeum sp. z o.o. · Centrum Dziecięcej Wyobraźni · Gliwice &nbsp;|&nbsp;
+  Raport B2B — Tydzień III · 22 czerwca 2026 &nbsp;|&nbsp;
+  Dane: iKSORIS + arkusze wewnętrzne &nbsp;|&nbsp;
+  Segmenty wycieczki / urodzinki raportowane oddzielnie
+</footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif";
-
-// Daily ticket sales chart
-new Chart(document.getElementById('frekChart'),{
-  type:'bar',
-  data:{
-    labels:['01','02','03','06','08','09','10','11','12','13','15','16','17','18','19','20','22'],
-    datasets:[{
-      label:'Bilety',
-      data:[371,404,567,50,470,507,730,424,500,108,286,465,469,280,271,32,245],
-      backgroundColor:'#5DCAA5',hoverBackgroundColor:'#1D9E75',borderRadius:3,borderSkipped:false
-    }]
-  },
-  options:{
-    responsive:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>'0'+c[0].label+'.06.2026',label:c=>c.parsed.y+' biletów'}}},
-    scales:{
-      x:{ticks:{font:{size:10},color:'#9CA3AF',maxRotation:0},grid:{display:false}},
-      y:{ticks:{font:{size:10},color:'#9CA3AF'},grid:{color:'rgba(0,0,0,0.05)'},beginAtZero:true}
-    }
-  }
+// ── TABS ───────────────────────────────────
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    const i=+t.dataset.tab;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('p'+i).classList.add('active');
+    if(!rendered[i]){rendered[i]=true;renderTab(i);}
+  });
 });
+const rendered=[true,false,false,false];
 
-// Monthly trend chart
-new Chart(document.getElementById('trendChart'),{
-  type:'bar',
-  data:{
-    labels:['Sty','Lut','Mar','Kwi','Maj','Cze*'],
-    datasets:[{
-      label:'Bilety',
-      data:[908,3632,3627,3876,5806,6179],
-      backgroundColor:['#5DCAA5','#5DCAA5','#5DCAA5','#5DCAA5','#5DCAA5','#88D4BC'],
-      hoverBackgroundColor:'#1D9E75',borderRadius:3,borderSkipped:false
-    }]
-  },
-  options:{
-    responsive:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('pl-PL')+' biletów'}}},
-    scales:{
-      x:{ticks:{font:{size:11},color:'#9CA3AF'},grid:{display:false}},
-      y:{ticks:{font:{size:10},color:'#9CA3AF'},grid:{color:'rgba(0,0,0,0.05)'},beginAtZero:true}
-    }
-  }
-});
+// ── CHART DEFAULTS ─────────────────────────
+Chart.defaults.color='#4d5778';
+Chart.defaults.borderColor='#2a3050';
+Chart.defaults.font={family:"'Inter',system-ui,sans-serif",size:11};
 
-// Daily reservation growth chart
-new Chart(document.getElementById('przyrostChart'),{
-  type:'bar',
-  data:{
-    labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21'],
-    datasets:[{
-      label:'Nowe osoby',
-      data:[124,212,0,0,0,23,0,404,99,0,96,0,0,12,16,54,96,63,83,0,0],
-      backgroundColor:'#7AB8E8',hoverBackgroundColor:'#378ADD',borderRadius:3,borderSkipped:false
-    }]
-  },
-  options:{
-    responsive:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' os.'}}},
-    scales:{
-      x:{ticks:{font:{size:9},color:'#9CA3AF',maxRotation:0},grid:{display:false}},
-      y:{ticks:{font:{size:10},color:'#9CA3AF'},grid:{color:'rgba(0,0,0,0.05)'},beginAtZero:true}
+const TEAL='#1D9E75', TEAL_L='#5DCAA5', AMB='#F59E0B', BLUE='#3B82F6', BLUE_L='#93c5fd';
+
+function renderTab(i){
+  if(i===1) renderWycieczki();
+  if(i===3) renderKontekst();
+}
+
+function renderWycieczki(){
+  new Chart(document.getElementById('chartDaily'),{
+    type:'bar',
+    data:{
+      labels:['01','02','03','06','08','09','10','11','12','13','15','16','17','18','19','20','22'],
+      datasets:[{
+        label:'Bilety',
+        data:[371,404,567,50,470,507,730,424,500,108,286,465,469,280,271,32,245],
+        backgroundColor:(ctx)=>{
+          const d=ctx.dataIndex;
+          const vals=[371,404,567,50,470,507,730,424,500,108,286,465,469,280,271,32,245];
+          return vals[d]===730?TEAL:(d===16?BLUE_L:TEAL_L);
+        },
+        borderRadius:3,borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{title:c=>'Cze 0'+c[0].label+'.2026',label:c=>c.raw+' biletów'}}
+      },
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:9}}},
+        y:{grid:{color:'#2a3050'},beginAtZero:true,ticks:{font:{size:9}}}
+      }
     }
-  }
-});
+  });
+}
+
+function renderKontekst(){
+  new Chart(document.getElementById('chartMonthly'),{
+    type:'bar',
+    data:{
+      labels:['Sty','Lut','Mar','Kwi','Maj','Cze*'],
+      datasets:[{
+        label:'Bilety',
+        data:[908,3632,3627,3876,5806,6179],
+        backgroundColor:['#374151','#4b5563','#4b5563','#5DCAA5','#5DCAA5','#3B82F6'],
+        borderRadius:4
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw.toLocaleString('pl-PL')+' biletów'}}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:9}}},
+        y:{grid:{color:'#2a3050'},beginAtZero:true,ticks:{font:{size:9}}}
+      }
+    }
+  });
+
+  new Chart(document.getElementById('chartPrzyrost'),{
+    type:'bar',
+    data:{
+      labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21'],
+      datasets:[{
+        label:'Nowi uczestnicy',
+        data:[124,212,0,0,0,23,0,404,99,0,96,0,0,12,16,54,96,63,83,0,0],
+        backgroundColor:(ctx)=>ctx.raw===404?TEAL:BLUE_L,
+        borderRadius:3,borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' os.'}}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:9},maxRotation:0}},
+        y:{grid:{color:'#2a3050'},beginAtZero:true,ticks:{font:{size:9}}}
+      }
+    }
+  });
+}
 </script>
 </body>
 </html>
