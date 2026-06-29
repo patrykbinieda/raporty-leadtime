@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funzeum — Raporty B2B</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--bg2:#161b27;--bg3:#1e2438;--br:#2a3050;
+  --t1:#f0f4ff;--t2:#8b95b8;--t3:#4d5778;
+  --teal:#1D9E75;--teal-l:#5DCAA5;--teal-d:#0a3d2e;
+  --amb:#F59E0B;--amb-l:#fbbf24;--amb-d:#3d2200;
+  --r:10px;
+}
+body{background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,sans-serif;min-height:100vh}
+
+header{
+  background:linear-gradient(135deg,#0d1829 0%,#0d2a1d 100%);
+  border-bottom:1px solid var(--br);padding:28px 36px 24px;
+}
+.brand{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
+.title{font-size:24px;font-weight:400;letter-spacing:-0.5px}
+.sub{font-size:11px;color:var(--t3);margin-top:5px}
+
+main{max-width:980px;margin:0 auto;padding:32px 24px}
+
+.sec-lbl{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);
+  margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--br);
+  display:flex;align-items:center;gap:10px;
+}
+.sec-lbl:first-child{margin-top:0}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+
+a.card{
+  display:block;background:var(--bg2);border:1px solid var(--br);border-radius:var(--r);
+  padding:20px 22px;text-decoration:none;transition:all .18s;position:relative;overflow:hidden;
+}
+a.card:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.35)}
+a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+a.card.new::before{background:var(--teal)}
+a.card.prev::before{background:#374151}
+a.card.ana-amb::before{background:var(--amb)}
+a.card.ana-ind::before{background:#6366f1}
+
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.card-tag{font-size:9px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}
+.tag-new{background:var(--teal-d);color:var(--teal-l);border:1px solid var(--teal)}
+.tag-prev{background:#1f2937;color:#6b7280;border:1px solid #374151}
+.tag-ana{background:#1e1b4b;color:#a5b4fc;border:1px solid #4f46e5}
+.tag-amb{background:var(--amb-d);color:var(--amb-l);border:1px solid var(--amb)}
+
+.card-title{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:5px}
+.card-desc{font-size:11px;color:var(--t2);line-height:1.65;margin-bottom:14px}
+.card-stats{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.stat .val{font-size:18px;font-weight:400}
+.stat .lbl{font-size:9px;color:var(--t3)}
+.card-cta{font-size:11px;display:flex;align-items:center;gap:5px}
+.cta-teal{color:var(--teal-l)}
+.cta-gray{color:var(--t3)}
+.cta-amb{color:var(--amb-l)}
+.cta-ind{color:#a5b4fc}
+
+.placeholder{
+  opacity:.35;pointer-events:none;border-style:dashed!important;
+}
+
+footer{
+  text-align:center;padding:20px;font-size:9px;color:var(--t3);
+  border-top:1px solid var(--br);margin-top:40px;background:var(--bg2)
+}
+
+@media(max-width:600px){main{padding:20px 16px}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Centrum Dziecięcej Wyobraźni · Gliwice</div>
+  <div class="title">Funzeum — Raporty B2B</div>
+  <div class="sub">Repozytorium raportów tygodniowych i analitycznych · iKSORIS + arkusze wewnętrzne</div>
+</header>
+
+<main>
+
+  <!-- ── RAPORTY TYGODNIOWE ───────────────────── -->
+  <div class="sec-lbl">📊 Raporty tygodniowe B2B — Czerwiec 2026</div>
+  <div class="cards">
+
+    <!-- 29.06 — Tydzień IV (NAJNOWSZY) -->
+    <a class="card new" href="raport_b2b_cze_t4_2026.html">
+      <div class="card-top">
+        <div class="card-icon" style="background:var(--teal-d)">📈</div>
+        <span class="card-tag tag-new">Tydzień IV · Najnowszy</span>
+      </div>
+      <div class="card-title">29.06.2026 — Tydzień IV (22–28.06)</div>
+      <div class="card-desc">Zamknięcie miesiąca. Odpad 5,6% w tyg. IV (↓13,7 pp). Nowe rez. +11/+298 uczestników. Lipiec dominuje (47,2% bookingów). 4 zakładki z wykresami.</div>
+      <div class="card-stats">
+        <div class="stat"><div class="val" style="color:var(--teal-l)">6 553</div><div class="lbl">płacący Cze</div></div>
+        <div class="stat"><div class="val" style="color:var(--teal-l)">57 rez.</div><div class="lbl">aktywne</div></div>
+        <div class="stat"><div class="val" style="color:var(--teal-l)">5,6%</div><div class="lbl">odpad tyg.IV</div></div>
+      </div>
+      <div class="card-cta cta-teal">Otwórz raport →</div>
+    </a>
+
+    <!-- 22.06 — Tydzień III (v7) -->
+    <a class="card prev" href="Funzeum_Raport_B2B_22_06_2026_v7.html">
+      <div class="card-top">
+        <div class="card-icon" style="background:#1f2937">📋</div>
+        <span class="card-tag tag-prev">Tydzień III · 22.06</span>
+      </div>
+      <div class="card-title">22.06.2026 — Tydzień III (15–21.06)</div>
+      <div class="card-desc">Stan na 22 czerwca. Wycieczki 46 rez. / 1 215 biletów, urodzinki 15 rez. / 119 biletów. Zrealizowane do 22.06: 6 179 biletów płacących. Prognoza miesięczna ~6 698.</div>
+      <div class="card-stats">
+        <div class="stat"><div class="val" style="color:var(--t2)">6 179</div><div class="lbl">zreal. do 22.06</div></div>
+        <div class="stat"><div class="val" style="color:var(--t2)">46 rez.</div><div class="lbl">wycieczki</div></div>
+        <div class="stat"><div class="val" style="color:var(--t2)">15 rez.</div><div class="lbl">urodzinki</div></div>
+      </div>
+      <div class="card-cta cta-gray">Otwórz raport →</div>
+    </a>
+
+    <!-- Placeholder: Lipiec Tyg. I -->
+    <div class="card placeholder" style="border:1px dashed var(--br)">
+      <div class="card-top">
+        <div class="card-icon" style="background:var(--bg3)">📋</div>
+        <span class="card-tag" style="background:var(--bg3);color:var(--t3);border:1px solid var(--br)">Lipiec 2026 · Tyg. I</span>
+      </div>
+      <div class="card-title" style="color:var(--t3)">06.07.2026 — Tydzień I</div>
+      <div class="card-desc" style="color:var(--t3)">Raport zostanie dodany po zakończeniu tygodnia.</div>
+      <div class="card-cta cta-gray">Wkrótce</div>
+    </div>
+
+  </div>
+
+  <!-- ── ANALIZY ──────────────────────────────── -->
+  <div class="sec-lbl">🔍 Analizy — lead time i wzorce rezerwacji</div>
+  <div class="cards">
+
+    <a class="card ana-amb" href="funzeum_dashboard_q3_2025.html">
+      <div class="card-top">
+        <div class="card-icon" style="background:var(--amb-d)">☀️</div>
+        <span class="card-tag tag-amb">Analiza · Lato–Jesień 2025</span>
+      </div>
+      <div class="card-title">Wycieczki szkolne — VII–X 2025</div>
+      <div class="card-desc">Krótkie lead time, szczyt październikowy. Dominacja wrześniowego okna rezerwacyjnego. Retargeting i krótki horyzont kampanii.</div>
+      <div class="card-stats">
+        <div class="stat"><div class="val" style="color:var(--amb-l)">11 397</div><div class="lbl">biletów</div></div>
+        <div class="stat"><div class="val" style="color:var(--amb-l)">282</div><div class="lbl">grup</div></div>
+        <div class="stat"><div class="val" style="color:var(--t2)">26 dni</div><div class="lbl">med. lead time</div></div>
+      </div>
+      <div class="card-cta cta-amb">Otwórz raport →</div>
+    </a>
+
+    <a class="card ana-ind" href="funzeum_dashboard_i_vi_2026.html">
+      <div class="card-top">
+        <div class="card-icon" style="background:#1e1b4b">❄️</div>
+        <span class="card-tag tag-ana">Analiza · Zima–Wiosna 2026</span>
+      </div>
+      <div class="card-title">Wycieczki szkolne — I–VI 2026</div>
+      <div class="card-desc">Pełny sezon szkolny. Dłuższe lead time, szczyt czerwcowy. Krytyczne okno rezerwacyjne styczeń–marzec 2026.</div>
+      <div class="card-stats">
+        <div class="stat"><div class="val" style="color:#a5b4fc">25 394</div><div class="lbl">biletów</div></div>
+        <div class="stat"><div class="val" style="color:#a5b4fc">658</div><div class="lbl">grup</div></div>
+        <div class="stat"><div class="val" style="color:var(--t2)">43 dni</div><div class="lbl">med. lead time</div></div>
+      </div>
+      <div class="card-cta cta-ind">Otwórz raport →</div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  Funzeum sp. z o.o. · Centrum Dziecięcej Wyobraźni · Gliwice &nbsp;·&nbsp; Raporty B2B · iKSORIS + arkusze wewnętrzne
+</footer>
+
+</body>
+</html>
